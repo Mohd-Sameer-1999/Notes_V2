@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 public class Note {
 
     @PrimaryKey(autoGenerate = true)
-    private String id;
+    private Long id;
     private String title;
     private String description;
 
@@ -16,11 +16,11 @@ public class Note {
         this.description = description;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -1,29 +1,29 @@
 package com.example.notesv2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListPopupWindow;
+import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.tabs.TabLayout;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private NoteViewModel noteViewModel;
+
     private static final int RC_SIGN_IN = 1;
     RecyclerView notesList;
     RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter mAdapter;
+    NoteAdapter adapter;
     FloatingActionButton add;
 
     @Override
@@ -34,16 +34,24 @@ public class MainActivity extends AppCompatActivity {
         notesList = findViewById(R.id.notesList);
         layoutManager = new LinearLayoutManager(this);
         notesList.setLayoutManager(layoutManager);
-        String[] programmingList = {"C++", "C", "PYTHON", "C#", "JAVA", "JAVA SCRIPT", "DART", "SWIFT", "C++", "C", "PYTHON", "C#", "JAVA", "JAVA SCRIPT", "DART", "SWIFT"};
-        mAdapter = new MyAdapter(programmingList);
-        notesList.setAdapter(mAdapter);
-        add = findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
+        notesList.setHasFixedSize(true);
+
+        adapter = new NoteAdapter();
+
+        notesList.setAdapter(adapter);
+
+        noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
+        noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(this, CreateNotesActivity.class);
+            public void onChanged(List<Note> notes) {
+                adapter.setNotes(notes);
             }
         });
+
+
+
+
+
 
 
 

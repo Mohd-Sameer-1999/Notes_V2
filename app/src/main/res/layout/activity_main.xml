@@ -10,7 +10,7 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add"
+        android:id="@+id/addNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -19,7 +19,7 @@
         android:backgroundTint="@color/lightPink"
         android:baselineAlignBottom="false"
         android:contentDescription="@string/create_notes"
-        android:src="@drawable/add" />
+        android:src="@drawable/ic_add" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

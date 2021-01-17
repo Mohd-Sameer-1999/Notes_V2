@@ -1,5 +1,6 @@
 package com.example.notesv2;
 
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -24,6 +25,10 @@ public interface NoteDao {
     @Query("DELETE FROM note_table")
     void deleteAllNotes();
 
-    @Query("SELECT * FROM note_table")
+    @Query("SELECT * FROM note_table ORDER BY id DESC")
     LiveData<List<Note>> getAllNotes();
+
+    @Query("SELECT * FROM note_table WHERE title LIKE:searchQuery")
+    LiveData<List<Note>> searchDatabase(String searchQuery);
+
 }

@@ -4,8 +4,6 @@ import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
-import androidx.room.Insert;
 
 import java.util.List;
 
@@ -50,6 +48,7 @@ public class  NoteRepository {
         }
     }
 
+
     public static class UpdateNoteAsyncTask extends AsyncTask<Note, Void, Void>{
         private NoteDao noteDao;
 
@@ -87,6 +86,25 @@ public class  NoteRepository {
         protected Void doInBackground(Void... voids) {
             noteDao.deleteAllNotes();
             return null;
+        }
+    }
+    public static class SearchDatabaseAsyncTask extends AsyncTask<Note,Void,Note>{
+        private NoteDao noteDao;
+        private String query;
+        private SearchDatabaseAsyncTask(String query, NoteDao noteDao){
+            this.noteDao = noteDao;
+            this.query = query;
+        }
+        @Override
+        protected Note doInBackground(Note... notes) {
+            for (Note note:notes) {
+                query = query.toLowerCase();
+                if (query.contains(note.getTitle())){
+                    noteDao.searchDatabase(query);
+                    return note;
+                }
+            }
+            return notes[0];
         }
     }
 

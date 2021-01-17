@@ -5,4 +5,11 @@
         android:id="@+id/deleteAllNotes"
         android:title="Delete all notes"
         app:showAsAction="never"/>
+
+<!--    <item-->
+<!--        android:id="@+id/search"-->
+<!--        android:title="Search"-->
+<!--        android:icon="@drawable/ic_search"-->
+<!--        app:actionViewClass="androidx.appcompat.widget.SearchView"-->
+<!--        app:showAsAction="always|collapseActionView"/>-->
 </menu>

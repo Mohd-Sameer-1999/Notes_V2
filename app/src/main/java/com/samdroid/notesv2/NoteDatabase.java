@@ -1,4 +1,4 @@
-package com.example.notesv2;
+package com.samdroid.notesv2;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,11 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
-import java.util.Collections;
 
 
 @Database(entities = {Note.class}, version = 1)

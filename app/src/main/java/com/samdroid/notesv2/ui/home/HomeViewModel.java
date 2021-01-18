@@ -1,4 +1,4 @@
-package com.example.notesv2.ui.home;
+package com.samdroid.notesv2.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

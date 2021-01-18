@@ -1,4 +1,4 @@
-package com.example.notesv2.ui.slideshow;
+package com.samdroid.notesv2.ui.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

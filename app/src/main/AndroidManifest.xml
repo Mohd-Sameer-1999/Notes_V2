@@ -15,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CreateEditNotesActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:name="com.samdroid.notesv2.CreateEditNotesActivity"
+            android:parentActivityName="com.samdroid.notesv2.MainActivity"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.samdroid.notesv2.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

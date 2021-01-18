@@ -1,4 +1,4 @@
-package com.example.notesv2.ui.gallery;
+package com.samdroid.notesv2.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,4 +1,4 @@
-package com.example.notesv2;
+package com.samdroid.notesv2;
 
 import android.graphics.Bitmap;
 

@@ -45,7 +45,7 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteViewHolder> {
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if(listener != null && position != RecyclerView.NO_POSITION){
-                        listener.onItemClick(getItem(position));
+                        listener.onItemClick((Note) getItem(position));
                     }
                 }
             });
@@ -75,14 +75,14 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        Note currentNote = getItem(position);
+        Note currentNote = (Note) getItem(position);
         holder.titleTextView.setText(currentNote.getTitle());
         holder.descriptionTextView.setText((CharSequence) currentNote.getDescription());
 
     }
 
     public Note getNotesAt(int position){
-        return getItem(position);
+        return (Note) getItem(position);
     }
 
 }
